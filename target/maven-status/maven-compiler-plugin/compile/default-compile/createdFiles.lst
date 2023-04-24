@@ -1,0 +1,12 @@
+org/greenSoftware/controller/CrossOriginResourceSharingFilter.class
+org/greenSoftware/dao/ModulesDAO.class
+org/greenSoftware/manager/Manager.class
+org/greenSoftware/pool/Pool.class
+org/greenSoftware/dao/impl/ModuleDAOimpl.class
+org/greenSoftware/config/ApplicationConfig.class
+org/greenSoftware/controller/MainController.class
+org/greenSoftware/repository/ModuleRepository.class
+org/greenSoftware/controller/ModuleController.class
+org/greenSoftware/dto/UserDTO.class
+org/greenSoftware/dto/ModuleDTO.class
+org/greenSoftware/manager/impl/ManagerImpl.class
