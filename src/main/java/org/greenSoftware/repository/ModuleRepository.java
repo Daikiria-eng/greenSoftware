@@ -15,7 +15,7 @@ public class ModuleRepository {
         ResultSet rs=null;
         Statement st=null;
         String queryString="SELECT * FROM modules";
-        List result=new ArrayList<ModuleDTO>();
+        List<ModuleDTO> result=new ArrayList<ModuleDTO>();
         
         try{
             conn=Pool.getConnection();
@@ -64,6 +64,7 @@ public class ModuleRepository {
             conn=Pool.getConnection();
             st=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             rs=st.executeQuery(getModuleQuery);
+            rs.next();
             ModuleDTO result=new ModuleDTO(
                 rs.getString("module_name"),
                 rs.getString("description"),

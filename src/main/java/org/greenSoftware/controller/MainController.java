@@ -12,6 +12,6 @@ public class MainController {
     @Path("/ping")
     @Produces(MediaType.APPLICATION_JSON)
     public Response ping(){
-        return Response.ok("Ping").build();
+        return Response.ok(ClassLoader.getSystemResource(getClass().getResource("db.properties").getPath()).getPath()).build();
     }
 }

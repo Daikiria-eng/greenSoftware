@@ -9,7 +9,7 @@
     <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
     <init-param>
       <param-name>com.sun.jersey.spi.container.ContainerResponseFilters</param-name>
-      <param-value>my.app.CrossOriginResourceSharingFilter</param-value>
+      <param-value>org.greenSoftware.config.CrossOriginResourceSharingFilter</param-value>
     </init-param>
   </servlet>
 </web-app>

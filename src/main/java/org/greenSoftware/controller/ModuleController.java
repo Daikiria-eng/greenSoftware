@@ -29,11 +29,10 @@ public class ModuleController {
     }
     
     @POST
-    @Path("/get-one")
+    @Path("/get-by-name")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
     public ModuleDTO getModule(@Context HttpHeaders headers,ModuleDTO module){
-
         return manager.getModule(module);
     }
 }

@@ -3,6 +3,7 @@ package org.greenSoftware.dao.impl;
 import java.util.List;
 import org.greenSoftware.dao.ModulesDAO;
 import org.greenSoftware.repository.ModuleRepository;
+import org.greenSoftware.util.Util;
 import org.greenSoftware.dto.ModuleDTO;
 
 public class ModuleDAOimpl implements ModulesDAO{
@@ -13,7 +14,8 @@ public class ModuleDAOimpl implements ModulesDAO{
     }
 
     public ModuleDTO getModule(ModuleDTO module) {
+        module.setModuleName(Util.escapeSpecialChars(module.getModuleName()));
+
         return moduleRepo.getModule(module);
     }
-    
 }

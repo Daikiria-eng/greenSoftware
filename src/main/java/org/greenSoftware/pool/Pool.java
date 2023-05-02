@@ -10,12 +10,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Properties;
+//import java.util.Properties;
+
+import org.greenSoftware.constants.Constants;
 
 public class Pool {
 
     public static Connection getConnection(){
-        Properties poolConfig=new Properties();
+        //Properties poolConfig=new Properties();
         //
         //poolConfig.load(ClassLoader.getSystemResourceAsStream("environ.properties"));
         /*try{
@@ -26,20 +28,22 @@ public class Pool {
             e.printStackTrace();
         }*/
 
-        System.out.printf("pille pues el recurso, o la propiedad %s",poolConfig.getProperty("jdbc.engine"));
+        //System.out.printf("pille pues el recurso, o la propiedad %s",poolConfig.getProperty("jdbc.engine"));
 
         /*final String urlConnection="jdbc:"+poolConfig.getProperty("jdbc.engine")+"://"
             +poolConfig.getProperty("jdbc.host")
             +":"+poolConfig.getProperty("jdbc.port")
             +"/"+poolConfig.getProperty("jdbc.database");*/
 
-        final String urlConnection="jdbc:postgresql://127.0.0.1:5432/green_software";
+        final String urlConnection="jdbc:"+Constants.JDBC_DB_ENGINE
+            +"://"+Constants.JDBC_DB_HOST
+            +":"+Constants.JDBC_DB_PORT
+            +"/"+Constants.JDBC_DB_NAME;
         Connection conn=null;
 
         try{
-            Class.forName("org.postgresql.Driver");
-            conn=DriverManager.getConnection(urlConnection,"postgres","postgres");
-            System.out.println("Connected to db");
+            Class.forName(Constants.JDBC_PG_DRIVER);
+            conn=DriverManager.getConnection(urlConnection,Constants.JDBC_PG_USER,Constants.JDBC_PG_PASS);
             
             return conn;
         }catch(Exception e){

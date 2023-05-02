@@ -32,10 +32,10 @@ public class UserDTO {
     public void setPassword(String password) {
         this.password = password;
     }
-    public int getLevel() {
-        return level;
+    public void setLevel(int level){
+        this.level=level;
     }
-    public void setLevel(int level) {
-        this.level = level;
+    public int getLevel(){
+        return level;
     }
 }
