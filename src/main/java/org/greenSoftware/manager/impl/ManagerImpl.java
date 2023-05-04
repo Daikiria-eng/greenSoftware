@@ -2,17 +2,18 @@ package org.greenSoftware.manager.impl;
 
 import java.util.List;
 import org.greenSoftware.dto.ModuleDTO;
+import org.greenSoftware.dto.QuestionDTO;
 import org.greenSoftware.dto.ResponseDTO;
 import org.greenSoftware.dto.UserDTO;
 import org.greenSoftware.dto.UserResponseDTO;
-import org.greenSoftware.dao.ModulesDAO;
+import org.greenSoftware.dao.ModuleDAO;
 import org.greenSoftware.dao.UserDAO;
 import org.greenSoftware.dao.impl.ModuleDAOimpl;
 import org.greenSoftware.dao.impl.UserDAOimpl;
 import org.greenSoftware.manager.Manager;
 
 public class ManagerImpl implements Manager{
-    ModulesDAO moduleDao=new ModuleDAOimpl();
+    ModuleDAO moduleDao=new ModuleDAOimpl();
     UserDAO userDao=new UserDAOimpl();
 
     public List<ModuleDTO> getAllModules() {
@@ -29,5 +30,13 @@ public class ManagerImpl implements Manager{
 
     public UserResponseDTO validateUser(UserDTO user) {
         return userDao.validateUser(user);
+    }
+    
+    public UserResponseDTO verifyUser(UserDTO user,String token){
+        return userDao.verifyUser(user,token);
+    }
+    
+    public QuestionDTO getQuestions(ModuleDTO module){
+        return moduleDao.getQuestions(module);
     }
 }

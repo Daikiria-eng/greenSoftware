@@ -9,11 +9,13 @@ import org.greenSoftware.dto.UserResponseDTO;
 import org.greenSoftware.repository.UserRepository;
 import org.greenSoftware.util.Util;
 
+import com.auth0.jwt.algorithms.Algorithm;
+
 public class UserDAOimpl implements UserDAO{
     UserRepository userRepo=new UserRepository();
 
     public ResponseDTO insertUser(UserDTO user) {
-        user.setUserName(Util.escapeSpecialChars(user.getUserName()));
+        user.setName(Util.escapeSpecialChars(user.getName()));
         if(Util.validateEmail(user.getEmail())){
             try {
                 user.setPassword(Util.hashIt(user.getPassword()));
@@ -35,13 +37,13 @@ public class UserDAOimpl implements UserDAO{
     public UserResponseDTO validateUser(UserDTO user) {
         if(Util.validateEmail(user.getEmail())){
             Util.escapeSpecialChars(user.getEmail());
+            Util.createJWT(user, Algorithm.HMAC256("daSecret"));
 
             return userRepo.validateUser(user);
         }else return new UserResponseDTO(user, false, null);
     }
     
-    public static void main(String[] args) {
-        UserDAOimpl ud=new UserDAOimpl();
-        System.out.println(ud.validateUser(new UserDTO("", "xxx@xxx.xxx", "Xxx123", 0)).getToken());
+    public UserResponseDTO verifyUser(UserDTO user,String token){
+        return Util.verifyJWT(token, Algorithm.HMAC256("daSecret"));
     }
 }

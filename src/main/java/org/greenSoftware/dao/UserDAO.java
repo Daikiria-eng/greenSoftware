@@ -8,4 +8,6 @@ public interface UserDAO {
     public ResponseDTO insertUser(UserDTO user);
     
     public UserResponseDTO validateUser(UserDTO user);
+    
+    public UserResponseDTO verifyUser(UserDTO user,String token);
 }

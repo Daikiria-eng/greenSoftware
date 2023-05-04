@@ -1,22 +1,22 @@
 package org.greenSoftware.dto;
 
 public class ModuleDTO {
-    private String moduleName,
+    private String name,
         description,
         examContent;
 
     public ModuleDTO(){}
-    public ModuleDTO(String moduleName,String description, String examContent){
-        this.moduleName=moduleName;
+    public ModuleDTO(String name,String description, String examContent){
+        this.name=name;
         this.description=description;
         this.examContent=examContent;
     }
 
-    public String getModuleName() {
-        return moduleName;
+    public String getName() {
+        return name;
     }
-    public void setModuleName(String moduleName) {
-        this.moduleName = moduleName;
+    public void setName(String name) {
+        this.name = name;
     }
     public String getDescription() {
         return description;

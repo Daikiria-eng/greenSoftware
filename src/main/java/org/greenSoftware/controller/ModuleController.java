@@ -35,4 +35,12 @@ public class ModuleController {
     public ModuleDTO getModule(@Context HttpHeaders headers,ModuleDTO module){
         return manager.getModule(module);
     }
+    
+    @POST
+    @Path("/get-questions")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getQuestions(ModuleDTO module){
+        return Response.ok(manager.getQuestions(module)).build();
+    }
 }

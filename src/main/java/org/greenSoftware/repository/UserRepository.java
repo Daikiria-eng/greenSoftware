@@ -6,10 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Types;
-
 import org.greenSoftware.dto.UserDTO;
 import org.greenSoftware.dto.UserResponseDTO;
 import org.greenSoftware.pool.Pool;
+import org.greenSoftware.util.Util;
+import com.auth0.jwt.algorithms.Algorithm;
 
 public class UserRepository {
     public int insertUser(UserDTO user){
@@ -21,7 +22,7 @@ public class UserRepository {
             conn.setAutoCommit(true);
             call=conn.prepareCall("{ ? = call public.insert_user(gen_random_uuid(),?,?,?) }");
             call.registerOutParameter(1,Types.INTEGER);
-            call.setString(2,user.getUserName());
+            call.setString(2,user.getName());
             call.setString(3,user.getEmail());
             call.setString(4,user.getPassword());
             call.execute();
@@ -58,11 +59,13 @@ public class UserRepository {
                 result=rs.getString(1);
                 result=result.substring(1, result.length()-1);
                 String splited[]=result.split(",");
-                user.setUserName(splited[0]);
+                user.setName(splited[0]);
                 user.setLevel(Integer.valueOf(splited[1]));
                 user.setPassword(null);
                 
-                return new UserResponseDTO(user, true, "tokensito");
+                String token=Util.createJWT(user, Algorithm.HMAC256("daSecret"));
+
+                return new UserResponseDTO(user, true, token);
             }else return new UserResponseDTO(user, false, null);
         } catch (Exception e) {
             // TODO: handle exception

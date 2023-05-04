@@ -1,24 +1,24 @@
 package org.greenSoftware.dto;
 
 public class UserDTO {
-    private String userName,
+    private String name,
             email,
             password;
     private int level;
     
     public UserDTO(){}
-    public UserDTO(String userName,String email,String password,int level){
-        this.userName=userName;
+    public UserDTO(String name,String email,String password,int level){
+        this.name=name;
         this.email=email;
         this.password=password;
         this.level=level;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getName() {
+        return name;
     }
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setName(String name) {
+        this.name = name;
     }
     public String getEmail() {
         return email;

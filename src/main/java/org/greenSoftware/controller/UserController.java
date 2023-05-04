@@ -7,6 +7,8 @@ import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.Context;
+import jakarta.ws.rs.core.HttpHeaders;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
@@ -28,5 +30,13 @@ public class UserController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response validateUser(UserDTO user){
         return Response.ok(manager.validateUser(user)).build();
+    }
+    
+    @POST
+    @Path("/verify-user")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response verifyUser(@Context HttpHeaders headers,UserDTO user){
+        return Response.ok(manager.verifyUser(user,headers.getHeaderString("Authentication"))).build();
     }
 }

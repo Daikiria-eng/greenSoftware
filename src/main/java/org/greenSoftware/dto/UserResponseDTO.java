@@ -1,23 +1,23 @@
 package org.greenSoftware.dto;
 
 public class UserResponseDTO extends UserDTO{
-    private boolean status;
+    private boolean valid;
     private String token;
     
     public UserResponseDTO(){}
     public UserResponseDTO(UserDTO user){
-        super(user.getUserName(),user.getEmail(),user.getPassword(),user.getLevel());
+        super(user.getName(),user.getEmail(),user.getPassword(),user.getLevel());
     }
-    public UserResponseDTO(UserDTO user,boolean status,String token){
-        super(user.getUserName(),user.getEmail(),user.getPassword(),user.getLevel());
-        this.status=status;
+    public UserResponseDTO(UserDTO user,boolean valid,String token){
+        super(user.getName(),user.getEmail(),user.getPassword(),user.getLevel());
+        this.valid=valid;
         this.token=token;
     }
-    public boolean isStatus() {
-        return status;
+    public boolean isValid() {
+        return valid;
     }
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setValid(boolean valid) {
+        this.valid = valid;
     }
     public String getToken() {
         return token;
