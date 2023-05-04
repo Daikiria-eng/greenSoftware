@@ -142,7 +142,7 @@ public class ModuleRepository {
             call.registerOutParameter(3,12);
             call.execute();
 
-            System.out.printf("Executed:\nquestions: %s\nOptions: %s",call.getString(3),call.getString(2));
+            
         }catch(Exception e){
             e.printStackTrace();
         }finally{
