@@ -6,7 +6,7 @@ import jakarta.ws.rs.ApplicationPath;
 @ApplicationPath("/api/v1")
 public class ApplicationConfig extends ResourceConfig{
     public ApplicationConfig(){
-        //register(getClass());
+        register(getClass());
         packages("org.greenSoftware.controller");
     }
 }

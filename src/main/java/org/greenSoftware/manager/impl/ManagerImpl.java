@@ -36,7 +36,7 @@ public class ManagerImpl implements Manager{
         return userDao.verifyUser(user,token);
     }
     
-    public QuestionDTO getQuestions(ModuleDTO module){
+    public List<QuestionDTO> getQuestions(ModuleDTO module){
         return moduleDao.getQuestions(module);
     }
 }

@@ -1,19 +1,14 @@
 package org.greenSoftware.dto;
 
 public class QuestionDTO {
-    private String questionString,
-        firstAns,
-        secondAns,
-        thirdAns,
-        fourthAns;
+    private String questionString,answer;
+    private Options options;
 
     public QuestionDTO(){}
-    public QuestionDTO(String questionString,String firstString,String secondString,String thirdString, String fourthString){
+    public QuestionDTO(String questionString,Options options,String answer){
         this.questionString=questionString;
-        this.firstAns=firstString;
-        this.secondAns=secondString;
-        this.thirdAns=thirdString;
-        this.fourthAns=fourthString;
+        this.options=options;
+        this.answer=answer;
     }
     public String getQuestionString() {
         return questionString;
@@ -21,28 +16,16 @@ public class QuestionDTO {
     public void setQuestionString(String questionString) {
         this.questionString = questionString;
     }
-    public String getFirstAns() {
-        return firstAns;
+    public String getAnswer() {
+        return answer;
     }
-    public void setFirstAns(String firstAns) {
-        this.firstAns = firstAns;
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
-    public String getSecondAns() {
-        return secondAns;
+    public Options getOptions() {
+        return options;
     }
-    public void setSecondAns(String secondAns) {
-        this.secondAns = secondAns;
-    }
-    public String getThirdAns() {
-        return thirdAns;
-    }
-    public void setThirdAns(String thirdAns) {
-        this.thirdAns = thirdAns;
-    }
-    public String getFourthAns() {
-        return fourthAns;
-    }
-    public void setFourthAns(String fourthAns) {
-        this.fourthAns = fourthAns;
+    public void setOptions(Options options) {
+        this.options = options;
     }
 }

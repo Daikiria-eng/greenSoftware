@@ -9,5 +9,5 @@ public interface ModuleDAO {
 
     public ModuleDTO getModule(ModuleDTO module);
     
-    public QuestionDTO getQuestions(ModuleDTO module);
+    public List<QuestionDTO> getQuestions(ModuleDTO module);
 }

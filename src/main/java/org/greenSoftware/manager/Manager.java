@@ -18,5 +18,5 @@ public interface Manager{
     
     public UserResponseDTO verifyUser(UserDTO user,String token);
     
-    public QuestionDTO getQuestions(ModuleDTO module);
+    public List<QuestionDTO> getQuestions(ModuleDTO module);
 }

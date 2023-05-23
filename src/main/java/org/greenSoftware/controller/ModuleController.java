@@ -32,8 +32,8 @@ public class ModuleController {
     @Path("/get-by-name")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-    public ModuleDTO getModule(@Context HttpHeaders headers,ModuleDTO module){
-        return manager.getModule(module);
+    public Response getModule(@Context HttpHeaders headers,ModuleDTO module){
+        return Response.ok(manager.getModule(module)).build();
     }
     
     @POST
@@ -41,6 +41,14 @@ public class ModuleController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response getQuestions(ModuleDTO module){
+        return Response.ok(manager.getQuestions(module)).build();
+    }
+    
+    @POST
+    @Path("/get-answers")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getAnswers(ModuleDTO module){
         return Response.ok(manager.getQuestions(module)).build();
     }
 }

@@ -7,7 +7,9 @@
 /home/enikyasta/Documentos/NetBeansProjects/greenSoftware/src/main/java/org/greenSoftware/controller/MainController.java
 /home/enikyasta/Documentos/NetBeansProjects/greenSoftware/src/main/java/org/greenSoftware/repository/ModuleRepository.java
 /home/enikyasta/Documentos/NetBeansProjects/greenSoftware/src/main/java/org/greenSoftware/manager/Manager.java
-/home/enikyasta/Documentos/NetBeansProjects/greenSoftware/src/main/java/org/greenSoftware/dao/ModulesDAO.java
+/home/enikyasta/Documentos/NetBeansProjects/greenSoftware/src/main/java/org/greenSoftware/dto/QuestionDTO.java
+/home/enikyasta/Documentos/NetBeansProjects/greenSoftware/src/main/java/org/greenSoftware/dto/Options.java
+/home/enikyasta/Documentos/NetBeansProjects/greenSoftware/src/main/java/org/greenSoftware/dao/ModuleDAO.java
 /home/enikyasta/Documentos/NetBeansProjects/greenSoftware/src/main/java/org/greenSoftware/dto/UserDTO.java
 /home/enikyasta/Documentos/NetBeansProjects/greenSoftware/src/main/java/org/greenSoftware/controller/UserController.java
 /home/enikyasta/Documentos/NetBeansProjects/greenSoftware/src/main/java/org/greenSoftware/dao/impl/UserDAOimpl.java

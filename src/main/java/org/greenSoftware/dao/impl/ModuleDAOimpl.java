@@ -20,7 +20,7 @@ public class ModuleDAOimpl implements ModuleDAO{
         return moduleRepo.getModule(module);
     }
     
-    public QuestionDTO getQuestions(ModuleDTO module){
+    public List<QuestionDTO> getQuestions(ModuleDTO module){
         module.setName(Util.escapeSpecialChars(module.getName()));
 
         return moduleRepo.getQuestions(module);

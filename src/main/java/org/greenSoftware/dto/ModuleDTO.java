@@ -1,12 +1,14 @@
 package org.greenSoftware.dto;
 
+import java.util.List;
+
 public class ModuleDTO {
     private String name,
-        description,
-        examContent;
+        description;
+    private List<QuestionDTO> examContent;
 
     public ModuleDTO(){}
-    public ModuleDTO(String name,String description, String examContent){
+    public ModuleDTO(String name,String description,List<QuestionDTO> examContent){
         this.name=name;
         this.description=description;
         this.examContent=examContent;
@@ -24,10 +26,10 @@ public class ModuleDTO {
     public void setDescription(String description) {
         this.description = description;
     }
-    public String getExamContent() {
+    public List<QuestionDTO> getExamContent() {
         return examContent;
     }
-    public void setExamContent(String examContent) {
-        this.examContent = examContent;
+    public void setExamContent(List<QuestionDTO> examContent) {
+        this.examContent=examContent;
     }
 }
