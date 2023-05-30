@@ -25,7 +25,7 @@ public class ModuleController {
         //return manager.getAllModules();
         return (pass.equals("admin"))?
             Response.ok(manager.getAllModules()).build():
-            Response.ok("\"Response\":\"You Haver No Permission\"}").build();
+            Response.ok("{\"Response\":\"You Haver No Permission\"}").build();
     }
     
     @POST
@@ -43,12 +43,12 @@ public class ModuleController {
     public Response getQuestions(ModuleDTO module){
         return Response.ok(manager.getQuestions(module)).build();
     }
-    
+
     @POST
-    @Path("/get-answers")
+    @Path("/get-content")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAnswers(ModuleDTO module){
-        return Response.ok(manager.getQuestions(module)).build();
+    public Response getContent(ModuleDTO module){
+        return Response.ok(manager.getContent(module)).build();
     }
 }

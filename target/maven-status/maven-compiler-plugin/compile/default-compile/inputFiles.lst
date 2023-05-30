@@ -14,6 +14,7 @@
 /home/enikyasta/Documentos/NetBeansProjects/greenSoftware/src/main/java/org/greenSoftware/controller/UserController.java
 /home/enikyasta/Documentos/NetBeansProjects/greenSoftware/src/main/java/org/greenSoftware/dao/impl/UserDAOimpl.java
 /home/enikyasta/Documentos/NetBeansProjects/greenSoftware/src/main/java/org/greenSoftware/config/ApplicationConfig.java
+/home/enikyasta/Documentos/NetBeansProjects/greenSoftware/src/main/java/org/greenSoftware/dto/ModuleContentDTO.java
 /home/enikyasta/Documentos/NetBeansProjects/greenSoftware/src/main/java/org/greenSoftware/util/Util.java
 /home/enikyasta/Documentos/NetBeansProjects/greenSoftware/src/main/java/org/greenSoftware/dto/UserResponseDTO.java
 /home/enikyasta/Documentos/NetBeansProjects/greenSoftware/src/main/java/org/greenSoftware/manager/impl/ManagerImpl.java

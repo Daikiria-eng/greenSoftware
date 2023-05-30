@@ -1,12 +1,14 @@
 package org.greenSoftware.repository;
 
 import java.sql.Statement;
+import java.sql.Types;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import org.greenSoftware.dto.ModuleContentDTO;
 import org.greenSoftware.dto.ModuleDTO;
 import org.greenSoftware.dto.QuestionDTO;
 import org.greenSoftware.pool.Pool;
@@ -43,15 +45,11 @@ public class ModuleRepository {
             System.out.println("ERror al obtener modulos");
             e.printStackTrace();
         }finally{
-            try {rs.close();} catch (SQLException e) {
-                System.out.println("Error closing resource: "+e);
-                e.printStackTrace();
-            }
-            try {st.close();} catch (SQLException e) {
-                System.out.println("Error closing resource: "+e);
-                e.printStackTrace();
-            }
-            try {conn.close();} catch (SQLException e) {
+            try {
+                rs.close();
+                st.close();
+                conn.close();
+            } catch (SQLException e) {
                 System.out.println("Error closing resource: "+e);
                 e.printStackTrace();
             }
@@ -98,8 +96,10 @@ public class ModuleRepository {
     
     public List<QuestionDTO> getQuestions(ModuleDTO module){
         CallableStatement call=null;
+        Connection conn=null;
 
-        try(Connection conn=Pool.getConnection()){
+        try{
+            conn=Pool.getConnection();
             call=conn.prepareCall("{ ? = call get_questions(?) }");
             call.registerOutParameter(1,12);
             call.setString(2, module.getName());
@@ -112,8 +112,44 @@ public class ModuleRepository {
         }finally{
             try {
                 call.close();
+                conn.close();
             } catch (SQLException e) {
                 e.printStackTrace();
+            }
+        }
+
+        return null;
+    }
+    
+    public ModuleContentDTO getContent(ModuleDTO module){
+        Connection conn=null;
+        CallableStatement call=null;
+        
+        try{
+            conn=Pool.getConnection();
+            call=conn.prepareCall("{ call get_content(?,?,?,?,?) }");
+            call.setString(1,module.getName());
+            call.registerOutParameter(2,Types.VARCHAR);
+            call.registerOutParameter(3,Types.VARCHAR);
+            call.registerOutParameter(4,Types.VARCHAR);
+            call.registerOutParameter(5,Types.INTEGER);
+            call.execute();
+            
+            return new ModuleContentDTO(
+                call.getString(2),
+                call.getString(3),
+                call.getString(4),
+                call.getInt(5)
+            );
+        }catch(Exception e){
+            e.getMessage();
+            e.printStackTrace();
+        }finally{
+            try{
+                call.close();
+                conn.close();
+            }catch(SQLException e){
+                e.getMessage();
             }
         }
 

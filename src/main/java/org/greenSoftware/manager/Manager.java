@@ -1,6 +1,8 @@
 package org.greenSoftware.manager;
 
 import java.util.List;
+
+import org.greenSoftware.dto.ModuleContentDTO;
 import org.greenSoftware.dto.ModuleDTO;
 import org.greenSoftware.dto.QuestionDTO;
 import org.greenSoftware.dto.ResponseDTO;
@@ -19,4 +21,6 @@ public interface Manager{
     public UserResponseDTO verifyUser(UserDTO user,String token);
     
     public List<QuestionDTO> getQuestions(ModuleDTO module);
+    
+    public ModuleContentDTO getContent(ModuleDTO module);
 }

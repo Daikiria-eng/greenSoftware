@@ -1,6 +1,8 @@
 package org.greenSoftware.dao;
 
 import java.util.List;
+
+import org.greenSoftware.dto.ModuleContentDTO;
 import org.greenSoftware.dto.ModuleDTO;
 import org.greenSoftware.dto.QuestionDTO;
 
@@ -10,4 +12,6 @@ public interface ModuleDAO {
     public ModuleDTO getModule(ModuleDTO module);
     
     public List<QuestionDTO> getQuestions(ModuleDTO module);
+    
+    public ModuleContentDTO getContent(ModuleDTO module);
 }

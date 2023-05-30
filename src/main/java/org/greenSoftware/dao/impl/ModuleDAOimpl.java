@@ -4,6 +4,7 @@ import java.util.List;
 import org.greenSoftware.dao.ModuleDAO;
 import org.greenSoftware.repository.ModuleRepository;
 import org.greenSoftware.util.Util;
+import org.greenSoftware.dto.ModuleContentDTO;
 import org.greenSoftware.dto.ModuleDTO;
 import org.greenSoftware.dto.QuestionDTO;
 
@@ -24,5 +25,11 @@ public class ModuleDAOimpl implements ModuleDAO{
         module.setName(Util.escapeSpecialChars(module.getName()));
 
         return moduleRepo.getQuestions(module);
+    }
+    
+    public ModuleContentDTO getContent(ModuleDTO module){
+        module.setName(Util.escapeSpecialChars(module.getName()));
+        
+        return moduleRepo.getContent(module);
     }
 }

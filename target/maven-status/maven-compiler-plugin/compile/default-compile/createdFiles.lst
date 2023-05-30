@@ -19,6 +19,7 @@ org/greenSoftware/controller/ModuleController.class
 org/greenSoftware/repository/ModuleRepository$1.class
 org/greenSoftware/repository/UserRepository.class
 org/greenSoftware/dao/impl/UserDAOimpl.class
+org/greenSoftware/dto/ModuleContentDTO.class
 org/greenSoftware/dto/UserDTO.class
 org/greenSoftware/dto/ModuleDTO.class
 org/greenSoftware/config/CrossOriginResourceSharingFilter.class

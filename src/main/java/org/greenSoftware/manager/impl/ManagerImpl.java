@@ -1,6 +1,7 @@
 package org.greenSoftware.manager.impl;
 
 import java.util.List;
+import org.greenSoftware.dto.ModuleContentDTO;
 import org.greenSoftware.dto.ModuleDTO;
 import org.greenSoftware.dto.QuestionDTO;
 import org.greenSoftware.dto.ResponseDTO;
@@ -38,5 +39,9 @@ public class ManagerImpl implements Manager{
     
     public List<QuestionDTO> getQuestions(ModuleDTO module){
         return moduleDao.getQuestions(module);
+    }
+    
+    public ModuleContentDTO getContent(ModuleDTO module){
+        return moduleDao.getContent(module);
     }
 }

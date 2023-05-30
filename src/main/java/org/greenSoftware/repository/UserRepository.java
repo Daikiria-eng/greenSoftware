@@ -36,7 +36,7 @@ public class UserRepository {
                 conn.close();
                 call.close();
             } catch (SQLException e) {
-                // TODO Auto-generated catch block
+                e.getMessage();
                 e.printStackTrace();
             }
         }
@@ -68,7 +68,7 @@ public class UserRepository {
                 return new UserResponseDTO(user, true, token);
             }else return new UserResponseDTO(user, false, null);
         } catch (Exception e) {
-            // TODO: handle exception
+            e.getMessage();
             e.printStackTrace();
         }finally{
             try {
@@ -76,7 +76,7 @@ public class UserRepository {
                 call.close();
                 rs.close();
             } catch (SQLException e) {
-                // TODO Auto-generated catch block
+                e.getMessage();
                 e.printStackTrace();
             }
         }
